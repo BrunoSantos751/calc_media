@@ -7,30 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button type="button" onclick="window.location.href='index.php'"> 
-        <img src="img/voltar.png" width="24" alt="Voltar">
-    </button>
-    <form  method="post" id="form_di">
-        <div id="notas"></div>
-        <input type="hidden" name="nome" value="{nome}">
-        <label for="num1">Nota 1:</label>
-        <input type="number" id="num1" name="num[]" value="{num1}" step="0.01" min="0" max="10" required>
+    <div>
+        <button type="button" onclick="window.location.href='index.php'"> 
+            <img src="img/voltar.png" width="24" alt="Voltar">
+        </button>
+    </div>
+    <section>
+        <form  method="post" id="form_di">
+            <div id="notas"></div>
+            <input type="hidden" name="nome" value="{nome}">
+            <label for="num1">Nota 1:</label>
+            <input type="number" id="num1" name="num[]" value="{num1}" step="0.01" min="0" max="10" required>
 
-        <label for="num2">Nota 2:</label>
-        <input type="number" id="num2" name="num[]" value="{num2}" step="0.01" min="0" max="10" required>
+            <label for="num2">Nota 2:</label>
+            <input type="number" id="num2" name="num[]" value="{num2}" step="0.01" min="0" max="10" required>
 
-        <label for="num3">Nota 3:</label>
-        <input type="number" id="num3" name="num[]" value="{num3}" step="0.01" min="0" max="10" required>
+            <label for="num3">Nota 3:</label>
+            <input type="number" id="num3" name="num[]" value="{num3}" step="0.01" min="0" max="10" required>
 
-        <label for="num4">Nota 4:</label>
-        <input type="number" id="num4" name="num[]" value="{num4}" step="0.01" min="0" max="10" required>
+            <label for="num4">Nota 4:</label>
+            <input type="number" id="num4" name="num[]" value="{num4}" step="0.01" min="0" max="10" required>
 
-        <label for="media">Media para passar:</label>
-        <input type="number" id="media" name="media" value="{media}" step="0.01" min="0" max="10">
-        
-        <button type="submit">Calcular Média</button>
+            <label for="media">Media para passar:</label>
+            <input type="number" id="media" name="media" value="{media}" step="0.01" min="0" max="10">
+            
+            <button type="submit">Calcular Média</button>
 
-    </form>
+        </form>
+    </section>
     <button type="button" onclick="addNota()">Adicionar nota</button>
     <button type="button" onclick="removeNota()">Remover nota</button>
 
