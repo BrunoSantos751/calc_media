@@ -27,8 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['num'])) {
     $nome = isset($_POST['nome']) ? $_POST['nome'] : $nomeForForm;
 
     $notas = array_map('floatval', $_POST['num']);
+    $nota_corte = isset($_POST['media']) ? floatval($_POST['media']) : 7;
 
-    list($media, $status) = calcularMedia($nome, $notas);
+    list($media, $status) = calcularMedia($notas, $nota_corte);
 
     // Saída segura
     echo "<h2>Resultado:</h2>";
