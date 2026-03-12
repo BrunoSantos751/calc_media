@@ -35,20 +35,22 @@ const notas = document.querySelector("#notas");
 
 function addNota() {
 
-    const label = document.createElement("label");
+    const ultimoInput = notas.querySelector("input:last-of-type");
+    const ultimaLabel = ultimoInput.previousElementSibling;
 
-    const input = document.createElement("input");
-    input.type = "number";
-    input.name = "num[]";
-    input.step = "0.01";
-    input.id = `num${notas.children.length + 1}`;
-    input.min = "0";
-    input.max = "10";
-    input.required = true;
+    const novoLabel = ultimaLabel.cloneNode(true);
+    const novoInput = ultimoInput.cloneNode(true);
 
-    label.appendChild(input);
+    const n = notas.querySelectorAll("input").length + 1;
 
-    notas.appendChild(label);
+    novoLabel.innerText = `Nota ${n}:`;
+    novoInput.id = `num${n}`;
+    novoInput.value = "";
+
+    notas.appendChild(novoLabel);
+    notas.appendChild(novoInput);
+    notas.appendChild(document.createElement("br"));
+    notas.appendChild(document.createElement("br"));
 }
 
 function removeNota() {
