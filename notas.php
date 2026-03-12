@@ -24,7 +24,6 @@ show($nomeForForm);
 
 // Só calcula quando o formulário for submetido via POST e existir as notas
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['num'])) {
-    var_dump($_POST);
     $nome = isset($_POST['nome']) ? $_POST['nome'] : $nomeForForm;
 
     $notas = array_map('floatval', $_POST['num']);
