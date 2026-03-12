@@ -4,9 +4,12 @@
 function show() {
     $html = file_get_contents('index.html');
     $nome = '';
-    if (isset($_POST['nome'])) {
-        $nome = $_POST['nome'];
+    if (!isset($_POST['nome'])) {
+        header("Location: index.html");
+        exit();
     }
+
+    $nome = $_POST['nome'];
     $html = str_replace("{nome}", htmlspecialchars($nome, ENT_QUOTES, 'UTF-8'), $html);
     echo $html;
 }
