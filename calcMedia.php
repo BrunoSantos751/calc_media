@@ -1,4 +1,5 @@
 <?php
+    
 function calcularMedia(array $notas, float $nota_corte = 7): array
 {
     if ($nota_corte < 0 || $nota_corte > 10) {

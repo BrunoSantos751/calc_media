@@ -30,11 +30,23 @@ body{
     padding:1.75rem;
 }
 
+
+
 h1, h2{
     margin:0 0 0.75rem 0;
 }
 
-form{display:block}
+#voltar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    margin-bottom:1rem;
+}
+
+form{
+    display: block;
+}
 label{display:inline-block;margin-bottom:0.25rem;color:var(--muted)}
 input[type="text"], input[type="number"], input[type="email"], select, textarea{
     width:100%;
