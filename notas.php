@@ -14,16 +14,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 function show($nome) {
+
     $html = file_get_contents('calcular_media.html');
-    $html = str_replace("{nome}", htmlspecialchars($nome, ENT_QUOTES, 'UTF-8'), $html);
-    $html = str_replace("{num1}", htmlspecialchars($notas[0], ENT_QUOTES, 'UTF-8'), $html);
-    $html = str_replace("{num2}", htmlspecialchars($notas[1], ENT_QUOTES, 'UTF-8'), $html);
-    $html = str_replace("{num3}", htmlspecialchars($notas[2], ENT_QUOTES, 'UTF-8'), $html);
-    $html = str_replace("{num4}", htmlspecialchars($notas[3], ENT_QUOTES, 'UTF-8'), $html);
-    $html = str_replace("{media}", htmlspecialchars($nota_corte, ENT_QUOTES, 'UTF-8'), $html);
+
+    $nums = $_POST['num'] ?? ['', '', '', ''];
+    $media = $_POST['media'] ?? '';
+
+    $html = str_replace("{nome}", htmlspecialchars($nome), $html);
+    $html = str_replace("{num1}", $nums[0] ?? '', $html);
+    $html = str_replace("{num2}", $nums[1] ?? '', $html);
+    $html = str_replace("{num3}", $nums[2] ?? '', $html);
+    $html = str_replace("{num4}", $nums[3] ?? '', $html);
+    $html = str_replace("{media}", $media, $html);
+
     echo $html;
 }
-
 
 show($nomeForForm);
 
