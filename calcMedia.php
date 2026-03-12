@@ -11,7 +11,7 @@ function calcularMedia($notas, $nota_corte = 7) {
         if (!is_numeric($nota)) {
             return array(0, "Notas devem ser numéricas");
         }
-        if (empty($nota)) {
+        if (!isset($nota)) {
             return array(0, "Notas não podem ser vazias");
         }
     }
