@@ -18,13 +18,28 @@ function show($nome) {
     $html = file_get_contents('calcular_media.html');
 
     $nums = $_POST['num'] ?? ['', '', '', ''];
+
+    $notasHtml = '';
+
+    foreach ($nums as $i => $nota) {
+        $n = $i + 1;
+
+        $notasHtml .= "
+        <label for='num$n'>Nota $n:</label>
+        <input type='number'
+               id='num$n'
+               name='num[]'
+               value='".htmlspecialchars($nota, ENT_QUOTES, 'UTF-8')."'
+               step='0.01'
+               min='0'
+               max='10'
+               required><br><br>";
+    }
+
     $media = $_POST['media'] ?? '';
 
     $html = str_replace("{nome}", htmlspecialchars($nome), $html);
-    $html = str_replace("{num1}", $nums[0] ?? '', $html);
-    $html = str_replace("{num2}", $nums[1] ?? '', $html);
-    $html = str_replace("{num3}", $nums[2] ?? '', $html);
-    $html = str_replace("{num4}", $nums[3] ?? '', $html);
+    $html = str_replace("{notas}", $notasHtml, $html);
     $html = str_replace("{media}", $media, $html);
 
     echo $html;
