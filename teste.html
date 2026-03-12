@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcule sua média</title>
+</head>
+
+<body>
+
+<header>Calcule sua média</header>
+<?php
+    var_dump($_POST);
+?>
+
+<section>
+
+<form action="index.php" method="POST" id="form_id">
+
+    <div id="notas">
+
+        <label>
+            <input type="number" name="nota[]" step="0.01" required>
+        </label>
+
+    </div>
+
+    <br>
+
+    <button type="button" onclick="addNota()">Adicionar nota</button>
+    <button type="button" onclick="removeNota()">Remover nota</button>
+
+    <br><br>
+
+    <input type="submit" value="Calcular média">
+
+</form>
+
+</section>
+
+<script>
+
+const notas = document.querySelector("#notas");
+
+function addNota() {
+
+    const label = document.createElement("label");
+
+    const input = document.createElement("input");
+    input.type = "number";
+    input.name = "nota[]";
+    input.step = "0.01";
+    input.required = true;
+
+    label.appendChild(input);
+
+    notas.appendChild(label);
+}
+
+function removeNota() {
+
+    if (notas.children.length > 1) {
+        notas.lastElementChild.remove();
+    }
+
+}
+
+</script>
+
+</body>
+</html>
