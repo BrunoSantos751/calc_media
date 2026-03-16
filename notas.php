@@ -3,6 +3,10 @@
 include 'calcMedia.php';
 
 $nomeForForm = $_POST['nome'] ?? $_GET['nome'] ?? '';
+if (empty($nomeForForm)) {
+    header('Location: index.php');
+    exit;
+}
 $resultadoHtml = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['num'])) {
