@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Calculadora</h1>
-    <form id="mediaForm" action="index.php" method="post">
-        <label for="nome">nome:</label>
-        <input type="text" id="nome" name="nome" required><br><br>
-        <button type="submit">Calcular Media</button>
-    </form>
+    <main class="card">
+        <h1 style="margin-bottom: 1.5rem; color: var(--text); text-align: center;">Calculadora</h1>
+        <form id="mediaForm" action="notas.php" method="get">
+            <label for="nome" style="font-weight: 500;">Nome do aluno:</label>
+            <input type="text" id="nome" name="nome" required style="margin-bottom: 1.5rem;">
+            <button type="submit" style="width: 100%; padding: 0.75rem; font-size: 1rem;">Prosseguir</button>
+        </form>
+    </main>
 </body>
 </html>
